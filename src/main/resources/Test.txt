@@ -1,0 +1,46 @@
+
+a = 3;
+b = 2;
+c = 6;
+
+while (a > b) {
+    b = b + 1;
+    if (c < a) {
+        c = c + 1;
+    }
+}
+
+if (b == a) {
+     a = a + 1;
+}
+
+T = LList;
+i = 1;
+while (i <= 10){
+     T.add(i);
+     i = i + 1;
+}
+
+T.add(15);
+
+size = T.getSize;
+
+biba = T.getLast.getValue;
+boba = T.getFirst.getValue;
+
+bibo = T.getLast.getNext.getValue;
+bobo = T.getLast.getPrev.getValue;
+
+H = HSet;
+H.add(2);
+H.add(3);
+H.add(3);
+H.add(4);
+H.add(1);
+Hash = H.getSize;
+Set = H.isSet(2);
+NotSet = H.isSet(9);
+
+
+
+

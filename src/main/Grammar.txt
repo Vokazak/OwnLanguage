@@ -1,0 +1,30 @@
+DOT -> "."
+SEMICOLON -> ";"
+BRACKET_OPEN -> "("
+BRACKET_CLOSE -> ")"
+FBRACKET_OPEN -> "{"
+FBRACET_CLOSE -> "}"
+IF_KW -> "IF"
+WHILE_KW -> "WHILE"
+DO_KW -> "DO"
+VAR -> [a-zA-Z][a-zA-Z0-9]*
+OP -> "+" | "-" | "/" | "*"
+DIGIT -> 0|([1-9][0-9]*)
+ASSIGN_OP -> "="
+COMPARE_OP -> "!=" | ">" | "<" | ">=" | "<=" | "=="
+
+lang -> expr+
+value -> VAR|DIGIT|brcktexpr
+brcktexpr -> BRACKET_OPEN stmt BRACKET_CLOSE
+stmt -> value(OP value)* 
+object -> "Llist" | "HSet"
+comp -> stmt COMPARE_OP stmt SEMICOLON
+if_stmt -> IF_KW BRACKET_OPEN comp BRACKET_CLOSE FBRACKET_OPEN expr* FBRACKET_CLOSE SEMICOLON
+loopwhile -> WHILE_KW BRACKET_OPEN comp BRACKET_CLOSE FBRACKET_OPEN expr* FBRACKET_CLOSE SEMICOLON
+expr -> init | if | loopwhile
+objref -> VAR (DOT method)+
+method -> "getLast" | "getFirst" | "getSize" | "getNext" | "getPrev" | "getValue" | isSet
+isSet -> "isSet BRACKET_OPEN stmt BRACKET_CLOSE
+init -> VAR (ASSIGN_OP (object | objref | stmt)) | addobj semicolon
+addobj -> DOT "add" BRACKET_OPEN stmt BRACKET_CLOSE
+
