@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        Lexer lexer = new Lexer("src/Test.txt");
+        Lexer lexer = new Lexer("Test.txt");
         List<Token> tokens = lexer.do_lex();
 
         for (Token t : tokens){
